@@ -1,0 +1,153 @@
+*{
+  padding: 1px;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  }
+.nav-item:hover {
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+  color: black;
+}
+.nav-menu {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch; 
+  border: 1px solid black;
+  background: black;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 9px;
+  color: white;
+  background: black;
+}
+.section{
+  margin-top: 10px;
+}
+img{
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+}
+.sub{
+  display: flex;
+}
+input{
+  outline: none;
+  color: black;
+}
+.gcse-search-box {
+  display: block !important;
+  margin: 0;
+  width: 100%;
+  display: none;
+}
+.nav-menu{
+  margin-bottom: 10px;
+}
+  body {
+    background-color: #fff; 
+    color: #333; 
+    transition: background-color 0.5s, color 0.5s;
+  }
+body.dark-mode {
+  background-color: #333; 
+  color: #fff; 
+}
+.btn{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: grey;
+  margin: 3px;
+}
+.flex img{
+  width: 20px;
+  height: 20px;
+}
+.btn img{
+  width: 20px;
+  height: 20px;
+}
+  .avatar img{
+    width: 30px;
+    height: 30px;
+  }
+    .like-btn {
+  background-color: grey;
+  color: black;
+  padding: 5px 10px;
+  cursor: pointer;
+      margin: 10px;
+      border: none;
+}
+
+.like-btn.liked {
+  background-color: blue;
+  color: white;
+}
+  .post_author{
+    display: flex;
+    gap: 10px;
+  }
+  .line{
+    border-top: 1px solid grey;
+  }
+  article{
+    margin-top: 10px;
+  }
+
+.highlight {
+    background-color: blue; 
+  color: white;
+    font-weight: bold;       
+}
+.search-container{
+  display: flex;
+  background: grey;
+  
+}
+.search-container input{
+  outline: none;
+  background: transparent;
+  color: white;
+  text-align: center;
+}
+.search-container input::placeholder{
+  text-align: center;
+  color: white;
+  }
+body.dark-mode  .search-container,
+p a{
+  background: white;
+  color: black;
+}
+
+body.dark-mode  .search-container input,
+.search-container input::placeholder{
+  color: black;
+}
+
+p a{
+  background: grey;
+  color: black;
+  }
+.post_body a{
+  background: none;
+}
+body.dark-mode  .post_body a{
+  color: white;
+}
+.container .right{
+   right: 0;
+ }

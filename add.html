@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(100 100 100);
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgb(200,17,150);
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+  textarea, input, select{
+    resize: none;
+    outline: none;
+  }
+        .post {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .post h3 {
+            color: #333;
+        }
+        .post p {
+            color: #444;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Post</h1>
+        <form id="postForm">
+            <div class="form-group">
+                <label for="postTitle">Title:</label>
+                <input type="text" id="postTitle" name="postTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="postContent">Content:</label>
+                <textarea id="postContent" name="postContent" rows="8" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="postSection">Section:</label>
+                <select id="postSection" name="postSection" required>
+                    <option value="">Select Section</option>
+                    <option value="technology"><h2>Technology</h2></option>
+                    <option value="local"><h2>Local News</h2></option>
+                    <option value="world">World News</option>
+                    <!-- Add other section options here -->
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Section to display posts -->
+        <section id="postSectionDisplay"></section>
+    </div>
+
+    <script>
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var postTitle = document.getElementById('postTitle').value;
+            var postContent = document.getElementById('postContent').value;
+            var postSection = document.getElementById('postSection').value;
+            
+            if (postTitle.trim() === '' || postContent.trim() === '' || postSection === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            // Create a new post element
+            var postElement = document.createElement('div');
+            postElement.classList.add('post');
+            postElement.innerHTML = `
+                <h3>By: ${postTitle}</h3>
+                <p>${postContent}</p>
+                <p>Section: ${postSection}</p>
+            `;
+            
+            // Add the new post to the display section
+            var postSectionDisplay = document.getElementById('postSectionDisplay');
+            postSectionDisplay.appendChild(postElement);
+            
+            // Clear the form after submission
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+            document.getElementById('postSection').value = '';
+        });
+    </script>
+</body>
+</html>

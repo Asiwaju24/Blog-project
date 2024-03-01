@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Application</title>
+   
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    .post {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .post h3 {
+      color: #333;
+    }
+    .post .post_info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .post .post_info img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .post .post_info h5 {
+      margin: 0;
+      font-size: 16px;
+      color: #555;
+    }
+    .post .post_info small {
+      color: #777;
+    }
+    .post .post_body {
+      color: #444;
+      line-height: 1.6;
+    }
+    .post .comment-section {
+      margin-top: 20px;
+    }
+    .comment {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .comment p {
+      margin: 0;
+    }
+    .comment input[type="text"] {
+      width: 70%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .comment button[type="submit"] {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .comment button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  
+  .mgi{
+    text-align: center;
+    width: 300px;
+  }
+  .but{
+    width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  }
+.btn  {
+    position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+    
+  }
+  body{
+    background-color: rgb(120, 56, 255); 
+    color: #fff; 
+    transition: background-color 0.5s, color 0.5s;
+  }
+body.dark-mode {
+  background-color: #333; 
+  color: #fff; 
+}
+ 
+ body,.dark-mode .comment-section{
+   color: black;
+ }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <article class="post">
+      <div class="post_info">
+        <div class="avatar">
+          <img src="art.jpg" alt="Avatar">
+        </div>
+        <div class="post_author-info">
+          <h5>By: Frankie Joe</h5>
+          <small>June 14, 2024 9:30PM</small>
+        </div>
+      </div>
+      
+       <img class="mgi" src="8.jpg">
+      <h3 class="post_title">Lorem Ipsum</h3>
+      <p class="post_body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius auctor lacus nec feugiat. Phasellus sit amet ex ipsum. Praesent pharetra tincidunt tempor.
+      </p>
+     
+      <div class="comment-section">
+        <h4>Comments</h4>
+        <ul id="comments"></ul>
+        <form id="commentForm">
+          <input type="text" id="comment" name="comment" placeholder="Enter Comment">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </article>
+  </div>
+  
+  <button class="btn" onclick="toggleDarkMode()"><img class="but" src="dark.png"></button>
+  
+  <script>
+    //Comment Tab
+
+document.getElementById('commentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var commentInput = document.getElementById('comment').value;
+      if (commentInput.trim() !== '') {
+        addComment(commentInput);
+        document.getElementById('comment').value = '';
+      } else {
+        alert('Please enter a comment.');
+      }
+    });
+
+    function addComment(comment) {
+      var commentList = document.getElementById('comments');
+      var listItem = document.createElement('li');
+      listItem.className = 'comment';
+      listItem.textContent = comment;
+      commentList.appendChild(listItem);
+    }
+
+  
+  function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+        }
+  </script>
+</body>
+</html>
